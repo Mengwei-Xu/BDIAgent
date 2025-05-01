@@ -298,4 +298,43 @@
         </org.eventb.theory.core.recursiveOperatorDefinition>
     </org.eventb.theory.core.newOperatorDefinition>
     <org.eventb.theory.core.typeParameter name="elementH" org.eventb.core.identifier="Terms"/>
+    <org.eventb.theory.core.datatypeDefinition name="element^" org.eventb.core.identifier="NextProgramLocation">
+        <org.eventb.theory.core.typeArgument name="'" org.eventb.theory.core.givenType="Belief_predicate_symbols"/>
+        <org.eventb.theory.core.typeArgument name="(" org.eventb.theory.core.givenType="Event_predicate_symbols"/>
+        <org.eventb.theory.core.typeArgument name=")" org.eventb.theory.core.givenType="Action_predicate_symbols"/>
+        <org.eventb.theory.core.typeArgument name="*" org.eventb.theory.core.givenType="Terms"/>
+        <org.eventb.theory.core.datatypeConstructor name="+" org.eventb.core.identifier="BasicP_event_intention_location">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="basicP_event_intention_itself_location" org.eventb.theory.core.type="NextProgramLocation(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+        <org.eventb.theory.core.datatypeConstructor name="," org.eventb.core.identifier="BasicP_action_intention_location">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="basicP_action_intention_itself_location" org.eventb.theory.core.type="NextProgramLocation(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+        <org.eventb.theory.core.datatypeConstructor name="-" org.eventb.core.identifier="Head_of_sequence_intention_location">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="sequence_intention_itself_location" org.eventb.theory.core.type="NextProgramLocation(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+            <org.eventb.theory.core.constructorArgument name="(" org.eventb.core.identifier="tail_part_of_the_sequence_intention" org.eventb.theory.core.type="IntentionP(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+        <org.eventb.theory.core.datatypeConstructor name="." org.eventb.core.identifier="Left_of_concurrency_intention_location">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="concurrency_intention_itself_location" org.eventb.theory.core.type="NextProgramLocation(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+            <org.eventb.theory.core.constructorArgument name="(" org.eventb.core.identifier="right_part_of_concurrency_intention" org.eventb.theory.core.type="IntentionP(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+        <org.eventb.theory.core.datatypeConstructor name="/" org.eventb.core.identifier="Procedural_Program_of_declarative_goal_intention_location">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="declarative_goal_intention_itself_location" org.eventb.theory.core.type="NextProgramLocation(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+            <org.eventb.theory.core.constructorArgument name="(" org.eventb.core.identifier="success_condition_of_declarative_goal" org.eventb.theory.core.type="ℙ(Belief_predicate_symbols × Terms)"/>
+            <org.eventb.theory.core.constructorArgument name=")" org.eventb.core.identifier="failure_condition_of_declarative_goal" org.eventb.theory.core.type="ℙ(Belief_predicate_symbols × Terms)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+        <org.eventb.theory.core.datatypeConstructor name="0" org.eventb.core.identifier="Current_program_part_with_backups">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="current_program_with_backups_itself_location" org.eventb.theory.core.type="NextProgramLocation(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+            <org.eventb.theory.core.constructorArgument name="(" org.eventb.core.identifier="backups_part" org.eventb.theory.core.type="IntentionP(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+        <org.eventb.theory.core.datatypeConstructor name="1" org.eventb.core.identifier="Relevant_plans_location">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="relevant_plans_itself_location" org.eventb.theory.core.type="NextProgramLocation(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+        <org.eventb.theory.core.datatypeConstructor name="2" org.eventb.core.identifier="Nil_location">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="Nil_itself_location" org.eventb.theory.core.type="NextProgramLocation(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+        <org.eventb.theory.core.datatypeConstructor name="3" org.eventb.core.identifier="False_location">
+            <org.eventb.theory.core.constructorArgument name="'" org.eventb.core.identifier="False_itself_location" org.eventb.theory.core.type="NextProgramLocation(Belief_predicate_symbols, Event_predicate_symbols, Action_predicate_symbols, Terms)"/>
+        </org.eventb.theory.core.datatypeConstructor>
+        <org.eventb.theory.core.datatypeConstructor name="4" org.eventb.core.comment="default location for any given entire IntentionP (the base constructor)" org.eventb.core.identifier="Root"/>
+    </org.eventb.theory.core.datatypeDefinition>
 </org.eventb.theory.core.theoryRoot>
