@@ -11,13 +11,14 @@
         <org.eventb.core.guard name="(" org.eventb.core.label="grd1" org.eventb.core.predicate="intention ∈ intentions"/>
         <org.eventb.core.parameter name="*" org.eventb.core.identifier="terms"/>
         <org.eventb.core.parameter name="," org.eventb.core.identifier="intention"/>
-        <org.eventb.core.guard name="6" org.eventb.core.label="grd2" org.eventb.core.predicate="nextP ∈ next_programs_to_progress(intention, belief_base)"/>
+        <org.eventb.core.guard name="6" org.eventb.core.label="grd2" org.eventb.core.predicate="nextP ↦ nextP_location ∈ next_programs_to_progress(intention, belief_base, Root)"/>
         <org.eventb.core.guard name="4" org.eventb.core.comment="check the chosen top element is a basic event program" org.eventb.core.label="grd3" org.eventb.core.predicate="isBasicP_event_intention(nextP)"/>
         <org.eventb.core.guard name="-" org.eventb.core.comment="destruct BasicP_event_intention to extract the terms and the event " org.eventb.core.label="grd4" org.eventb.core.predicate="basic_program_event_intention(nextP)=event↦terms"/>
-        <org.eventb.core.action name="0" org.eventb.core.assignment="intentions ≔ (intentions∖{intention}) ∪ {update_intention(intention,nextP, newnextP, belief_base)}" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="0" org.eventb.core.assignment="intentions ≔ (intentions∖{intention}) ∪ {update_location_with_new_program(nextP_location, newnextP)}" org.eventb.core.label="act1"/>
         <org.eventb.core.parameter name="5" org.eventb.core.identifier="nextP"/>
         <org.eventb.core.guard name=":" org.eventb.core.comment="there exists at least one relevant plan " org.eventb.core.label="grd5" org.eventb.core.predicate="plan_rules[{event ↦ terms}] ≠ ∅"/>
-        <org.eventb.core.guard name="7" org.eventb.core.comment="if no revelant plan, Plans[{event ↦ terms}] returns empty set." org.eventb.core.label="grd6" org.eventb.core.predicate="newnextP = Relevant_plans(event↦terms, plan_rules[{event ↦ terms}])"/>
+        <org.eventb.core.guard name="7" org.eventb.core.comment="if no revelant plan, plan_rules[{event ↦ terms}] returns empty set." org.eventb.core.label="grd6" org.eventb.core.predicate="newnextP = Relevant_plans(event↦terms, plan_rules[{event ↦ terms}])" org.eventb.core.theorem="true"/>
+        <org.eventb.core.parameter name="=" org.eventb.core.identifier="nextP_location"/>
         <org.eventb.core.parameter name="8" org.eventb.core.identifier="newnextP"/>
         <org.eventb.core.action name=";" org.eventb.core.assignment="counter ≔ counter +1" org.eventb.core.label="act2"/>
     </org.eventb.core.event>
